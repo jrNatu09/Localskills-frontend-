@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LocalSkills</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 20px; }
+    header { background: #e1306c; color: white; padding: 15px; }
+    button { padding: 8px 12px; margin: 5px; }
+    .lesson { border: 1px solid #ddd; padding: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>LocalSkills</h1>
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('sw')">Kiswahili</button>
+</header>
+
+<h2 id="title"></h2>
+<p id="desc"></p>
+
+<div class="lesson">
+  <h3 id="lessonTitle"></h3>
+  <p id="lessonContent"></p>
+</div>
+
+<script>
+  let lang = "en";
+
+  const content = {
+    en: {
+      title: "Learn Instagram Marketing",
+      desc: "Simple lessons for small businesses in Tanzania",
+      lessonTitle: "Lesson 1: Instagram Basics",
+      lessonContent: "Instagram helps your business reach more customers."
+    },
+    sw: {
+      title: "Jifunze Masoko ya Instagram",
+      desc: "Masomo rahisi kwa biashara ndogo Tanzania",
+      lessonTitle: "Somo 1: Msingi wa Instagram",
+      lessonContent: "Instagram inasaidia biashara yako kupata wateja wengi."
+    }
+  };
+
+  function setLang(l) {
+    lang = l;
+    render();
+  }
+
+  function render() {
+    document.getElementById("title").innerText = content[lang].title;
+    document.getElementById("desc").innerText = content[lang].desc;
+    document.getElementById("lessonTitle").innerText = content[lang].lessonTitle;
+    document.getElementById("lessonContent").innerText = content[lang].lessonContent;
+  }
+
+  render();
+</script>
+
+</body>
+</html>
